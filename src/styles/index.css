@@ -14,7 +14,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 .heading{
-    background-color: rgb(0, 0, 0);
+    background-color: #151516;
     margin: 0 auto;
     color: white;
 }
@@ -39,4 +39,8 @@
     padding: 10px;
     border-radius: 10px;
     border: 3px solid #4d4d4d;
+}
+
+.buttons {
+    background-color:rgb(14, 14, 14);
 }

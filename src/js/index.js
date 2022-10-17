@@ -13,6 +13,7 @@ import "../styles/index.css";
 
 //import your own components
 import SecondsCounter from "./component/SecondsCounter.jsx";
+import Buttons from "./component/Buttons.jsx";
 
 //render your react application
 
@@ -38,3 +39,5 @@ setInterval(function (){
 
 	ReactDOM.render(<SecondsCounter digitOne={one} digitTwo={two} digitThree={three} digitFour={four} />, document.querySelector("#app"));
 }, 1000);
+
+ReactDOM.render(<Buttons />, document.querySelector("#buttons"));
