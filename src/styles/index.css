@@ -44,3 +44,23 @@
 .buttons {
     background-color:rgb(14, 14, 14);
 }
+
+.timer{
+    background-color: black;
+}
+
+.btn-blue{
+    background-color: #b6e4ee;
+    color: rgb(31, 31, 31);
+    font-weight: 600;
+}
+
+.btn-blue:hover{
+    background-color: #eedf96;
+    color: rgb(31, 31, 31);
+    font-weight: 600;
+}
+
+.btn-reset{
+    background-color: rgb(241, 139, 108);
+}

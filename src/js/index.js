@@ -1,5 +1,5 @@
 //import react into the bundle
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,6 @@ import "../styles/index.css";
 
 //import your own components
 import SecondsCounter from "./component/SecondsCounter.jsx";
-import Buttons from "./component/Buttons.jsx";
 
 //render your react application
 
@@ -27,17 +26,48 @@ SecondsCounter.propTypes = {
 	digitOne: PropTypes.number,
 };
 
+
+
 let counter = 0;
+let paused = false;
+let subtract = false;
+let reset = false;
 
-setInterval(function (){
-	const four = Math.floor(counter/1000);
-	const three = Math.floor(counter/100);
-	const two = Math.floor(counter/10);
-	const one = Math.floor(counter/1);
+function handlePaused(){
+	paused = true;
+}
 
-	counter++;
+function handleContinued(){
+	paused = false;
+}
 
-	ReactDOM.render(<SecondsCounter digitOne={one} digitTwo={two} digitThree={three} digitFour={four} />, document.querySelector("#app"));
+function handleSubtract(){
+	subtract = true;
+}
+
+function handleReset(){
+	reset = true;
+}
+
+const myInterval = setInterval(function (){
+
+		const four = Math.floor(counter/1000);
+		const three = Math.floor(counter/100);
+		const two = Math.floor(counter/10);
+		const one = Math.floor(counter/1);
+
+
+	if (paused == false){
+		counter++;
+	}
+	if (subtract == true){
+		counter=counter-2;
+		subtract = false;
+	}
+	if (reset == true){
+		counter = 0;
+		reset = false;
+	}
+
+	ReactDOM.render(<SecondsCounter digitOne={one} digitTwo={two} digitThree={three} digitFour={four} handlePaused={handlePaused} handleContinued={handleContinued} handleSubtract={handleSubtract} myInterval={myInterval} handleReset={handleReset} />, document.querySelector("#app"));
 }, 1000);
-
-ReactDOM.render(<Buttons />, document.querySelector("#buttons"));
